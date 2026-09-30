@@ -292,6 +292,14 @@ section {
 .hs {
   position: absolute;
   border-radius: 50%;
+  pointer-events: none; /* decoration only: never block the buttons under it */
+}
+.hbgtxt {
+  pointer-events: none;
+}
+#hero > .container {
+  position: relative;
+  z-index: 1;
 }
 .hs1 {
   width: 480px;
