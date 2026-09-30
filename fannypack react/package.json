@@ -1,0 +1,39 @@
+{
+  "name": "bookends-fannypack",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -n api,web -c blue,magenta \"npm:server\" \"vite\"",
+    "web": "vite",
+    "server": "node --watch server/index.js",
+    "db:migrate": "node server/migrate.js",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "node server/index.js",
+    "admin:create": "node server/scripts/create-admin.js",
+    "mail:test": "node server/scripts/mail-test.js",
+    "db:schema": "node server/scripts/dump-schema.js",
+    "db:backup": "node server/scripts/backup.js",
+    "db:restore": "node server/scripts/restore.js"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "aos": "^2.3.4",
+    "bootstrap": "5.3.8",
+    "compression": "^1.8.2",
+    "dotenv": "^18.0.4",
+    "express": "^5.2.1",
+    "nodemailer": "^10.0.12",
+    "pg": "^8.23.0",
+    "qrcode": "^1.5.4",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.18.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.0.0",
+    "concurrently": "^10.0.5",
+    "vite": "^7.1.0"
+  }
+}
