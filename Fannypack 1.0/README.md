@@ -1,25 +1,16 @@
-# Sarab – Free Fast Food & Restaurant HTML Template
-#### Preview
+# Fanny Pack - HTML Template
 
- - [Demo](https://themewagon.github.io/sarab/)
+The original static HTML version of the Bookends Fanny Pack website (folder `fannypack-html/`), with its
+documentation in `Documentation/`. The live website is the React app in `fannypack react/`.
 
-#### Download
- - [Download from ThemeWagon](https://themewagon.com/themes/sarab/)
+## Author
 
-## Getting Started
-
-1. Clone Repository
 ```
-git clone https://github.com/themewagon/sarab.git
-```
-
-## Author 
-```
-Design and code is completely written by Bestwpware and development team. 
+Design and code is completely written by Bestwpware and development team.
 ```
 
 ## License
 
  - Design and Code is Copyright &copy; <a href="https://bestwpware.com/" target="_blank">Bestwpware</a>
- - Licensed cover under [MIT]
+ - Licensed under MIT
  - Distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>

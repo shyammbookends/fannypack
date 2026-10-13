@@ -34,7 +34,7 @@ FROM (VALUES
 ) AS v(id, name)
 WHERE products.id = v.id AND products.display_name IS NULL;
 
--- Website image paths (files live in sarab-react/public/img/products)
+-- Website image paths (files live in frontend/public/img/products)
 UPDATE products SET site_images = v.imgs::jsonb
 FROM (VALUES
   ('the-classic',    '["/img/products/ghaslet-classic-poster.jpg","/img/products/ghaslet-classic.png"]'),
