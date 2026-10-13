@@ -1,0 +1,1719 @@
+:root {
+  --primary: #e8281a;
+  --secondary: #f6a623;
+  --dark: #1a1a1a;
+  --green: #2d6a4f;
+  --cream: #fff8f0;
+  --cream2: #fef0dc;
+  --light: #f9f5f0;
+  --shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.18);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  /* nothing may make the page wider than the screen (side-scrolling on phones) */
+  overflow-x: hidden;
+  overflow-x: clip;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  color: #444;
+  background: #fff;
+  overflow-x: hidden;
+  overflow-x: clip;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Playfair Display", serif;
+  color: var(--dark);
+}
+a {
+  text-decoration: none;
+  transition: all 0.3s;
+}
+img {
+  max-width: 100%;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 10px;
+}
+
+/* ===================== SEARCH TAGS ===================== */
+.ttag {
+  background: var(--primary);
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* ===================== NAVBAR ===================== */
+#nav {
+  background: #000;
+  position: sticky;
+  top: 0;
+  z-index: 990;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.07);
+  transition: 0.4s;
+}
+#nav.scrolled {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.14);
+}
+.blogo-img {
+  height: 70px;
+  width: auto;
+  display: block;
+}
+@media (max-width: 767px) {
+  .blogo-img {
+    height: 50px;
+  }
+}
+.flogo-img {
+  height: 110px;
+  width: auto;
+  display: block;
+  border-radius: 12px;
+}
+.navbar-nav .nav-link {
+  font-size: 0.87rem;
+  font-weight: 500;
+  color: #fff !important;
+  padding: 26px 13px !important;
+  position: relative;
+}
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 3px 3px 0 0;
+  transition: 0.3s;
+}
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+  width: 55%;
+}
+.navbar-nav .nav-link:hover {
+  color: var(--primary) !important;
+}
+/* FIX 1 â€” Search btn in navbar */
+#navSearchBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1rem;
+  padding: 8px 10px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+#navSearchBtn:hover {
+  background: rgba(232, 40, 26, 0.08);
+  color: var(--primary);
+}
+.nav-cta {
+  background: linear-gradient(135deg, var(--primary), #c01e12);
+  color: #fff !important;
+  border-radius: 8px;
+  padding: 10px 20px !important;
+  font-size: 0.84rem !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 15px rgba(232, 40, 26, 0.3);
+  margin-left: 6px;
+}
+.nav-cta::after {
+  display: none !important;
+}
+.nav-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(232, 40, 26, 0.4);
+}
+
+/* ===================== SECTION COMMONS ===================== */
+section {
+  padding: 88px 0;
+}
+.slbl {
+  font-family: "Dancing Script", cursive;
+  font-size: 1.35rem;
+  color: var(--primary);
+  display: block;
+  margin-bottom: 4px;
+}
+.stitle {
+  font-size: clamp(1.9rem, 4vw, 2.7rem);
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+.stitle span {
+  color: var(--primary);
+}
+.sline {
+  width: 58px;
+  height: 4px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  margin: 0 auto 12px;
+}
+.sline.lft {
+  margin-left: 0;
+}
+.sdesc {
+  color: #777;
+  font-size: 0.93rem;
+  line-height: 1.8;
+}
+.btn-red {
+  background: linear-gradient(135deg, var(--primary), #c01e12);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 14px 32px;
+  font-weight: 600;
+  font-size: 0.93rem;
+  box-shadow: 0 8px 24px rgba(232, 40, 26, 0.35);
+  transition: 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+}
+.btn-red:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 34px rgba(232, 40, 26, 0.45);
+  color: #fff;
+}
+
+/* ===================== HERO ===================== */
+#hero {
+  background: var(--cream);
+  min-height: 0;
+  padding: 36px 0 56px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+/* hero row: tall enough for the orbit + pills, no big empty band above the heading */
+.hrow {
+  min-height: min(78vh, 640px);
+}
+.hbgtxt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 22vw;
+  font-weight: 900;
+  font-family: "Playfair Display", serif;
+  color: rgba(0, 0, 0, 0.04);
+  pointer-events: none;
+  white-space: nowrap;
+}
+.hs {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none; /* decoration only: never block the buttons under it */
+}
+.hbgtxt {
+  pointer-events: none;
+}
+#hero > .container {
+  position: relative;
+  z-index: 1;
+}
+.hs1 {
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(232, 40, 26, 0.07), transparent 70%);
+  top: -90px;
+  right: -80px;
+  animation: fsh 8s ease-in-out infinite;
+}
+.hs2 {
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(
+    circle,
+    rgba(246, 166, 35, 0.09),
+    transparent 70%
+  );
+  bottom: -50px;
+  left: 8%;
+  animation: fsh 10s ease-in-out infinite reverse;
+}
+@keyframes fsh {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-28px);
+  }
+}
+.htitle {
+  font-size: clamp(2.7rem, 5vw, 4.3rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 18px;
+}
+.htitle .hl {
+  color: var(--primary);
+  position: relative;
+  display: inline-block;
+}
+.htitle .hl::before {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  right: 0;
+  height: 7px;
+  background: rgba(232, 40, 26, 0.14);
+  border-radius: 4px;
+  z-index: -1;
+}
+.hdesc {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.8;
+  max-width: 470px;
+  margin-bottom: 30px;
+}
+/* FIX 2 â€” Video play button */
+/* Outline button (hero secondary CTA) */
+.btn-line {
+  background: transparent;
+  color: var(--dark);
+  border: 2px solid var(--dark);
+  border-radius: 50px;
+  padding: 12px 30px;
+  font-weight: 600;
+  font-size: 0.93rem;
+  transition: 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: "Poppins", sans-serif;
+}
+.btn-line:hover {
+  background: var(--dark);
+  color: #fff;
+  transform: translateY(-2px);
+}
+.hstats {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+.hstat .snum {
+  font-family: "Playfair Display", serif;
+  font-size: 1.9rem;
+  font-weight: 900;
+  color: var(--dark);
+  display: block;
+  line-height: 1;
+}
+.hstat .snum em {
+  color: var(--primary);
+  font-style: normal;
+}
+.hstat small {
+  font-size: 0.7rem;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.sdiv {
+  width: 1px;
+  background: #ddd;
+  height: 38px;
+  align-self: center;
+}
+.hcircle {
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: #000;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+  box-shadow: 0 28px 76px rgba(232, 40, 26, 0.14);
+}
+.hcircle img {
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+/* Brand logo inside the hero circle (not cropped to a circle) */
+.hcircle img.hlogo {
+  width: 84%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0;
+  animation: hlogofl 5s ease-in-out infinite;
+}
+@keyframes hlogofl {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+/* ===== Hero: category pills coming out of the logo circle ===== */
+.horbit {
+  position: relative;
+  width: 480px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+/* slowly rotating dashed orbit around the circle */
+.horbit::before {
+  content: "";
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  width: 516px;
+  height: 516px;
+  margin-left: -258px;
+  border: 2px dashed rgba(232, 40, 26, 0.28);
+  border-radius: 50%;
+  animation: horbitspin 40s linear infinite;
+  pointer-events: none;
+}
+@keyframes horbitspin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.hcircle {
+  z-index: 2;
+}
+.hcat {
+  position: absolute;
+  top: var(--top);
+  right: var(--right);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transform: translateY(-50%);
+  /* emerge from the circle edge, one after another */
+  animation: hcatin 0.9s cubic-bezier(0.2, 0.9, 0.3, 1.25) both;
+  animation-delay: calc(0.5s + var(--i) * 0.18s);
+}
+@keyframes hcatin {
+  0% {
+    opacity: 0;
+    transform: translate(110px, -50%) scale(0.2);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, -50%) scale(1);
+  }
+}
+.hcat-pill {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  background: #000;
+  color: #fff;
+  border-radius: 50px;
+  padding: 7px 16px 7px 7px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28), 0 0 0 2px rgba(255, 255, 255, 0.06) inset;
+  text-align: left;
+  white-space: nowrap;
+  /* gentle continuous float, offset per pill */
+  animation: hcatfloat 3.6s ease-in-out infinite;
+  animation-delay: calc(1.6s + var(--i) * 0.45s);
+  transition: box-shadow 0.35s, transform 0.35s;
+}
+@keyframes hcatfloat {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-7px);
+  }
+}
+.hcat-ico {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent);
+  color: #000;
+  font-size: 0.95rem;
+  box-shadow: 0 0 0 0 var(--accent);
+  animation: hcatpulse 2.4s ease-out infinite;
+  animation-delay: calc(var(--i) * 0.6s);
+}
+@keyframes hcatpulse {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 70%, transparent);
+  }
+  100% {
+    box-shadow: 0 0 0 12px transparent;
+  }
+}
+.hcat-txt {
+  max-width: 150px;
+  white-space: normal;
+}
+.hcat-txt strong {
+  display: block;
+  font-size: 0.86rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.hcat-txt small {
+  display: block;
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.55);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.hcat-go {
+  font-size: 0.75rem;
+  color: var(--accent);
+  width: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: 0.35s;
+}
+/* connector: an "energy" line flowing from the circle into the pill */
+.hcat-line {
+  width: 46px;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, var(--accent) 0 8px, transparent 8px 14px);
+  background-size: 28px 2px;
+  transform-origin: right center;
+  animation: hcatline 0.6s ease-out both, hcatflow 0.9s linear infinite;
+  animation-delay: calc(0.35s + var(--i) * 0.18s), 0s;
+  opacity: 0.9;
+}
+@keyframes hcatline {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes hcatflow {
+  to {
+    background-position: -28px 0;
+  }
+}
+.hcat-dot {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  margin-right: -6px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid #000;
+  box-shadow: 0 0 10px var(--accent);
+  animation: hcatdot 1.8s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.3s);
+}
+@keyframes hcatdot {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.45);
+  }
+}
+.hcat:hover .hcat-pill {
+  animation: none;
+  transform: translateX(-12px) scale(1.05);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.35), 0 0 0 2px var(--accent) inset;
+}
+.hcat:hover .hcat-go {
+  width: 14px;
+  opacity: 1;
+  margin-left: 2px;
+}
+.hcat:focus-visible {
+  outline: none;
+}
+.hcat:focus-visible .hcat-pill {
+  box-shadow: 0 0 0 3px var(--accent);
+}
+/* Wide screens: push the circle to the right so the pills have room on its left */
+@media (min-width: 1400px) {
+  .horbit {
+    margin-right: 0;
+  }
+}
+/* Smaller screens: no room beside the circle, so the pills sit in a grid below it */
+@media (max-width: 1399px) {
+  .horbit::before {
+    display: none;
+  }
+  .hcats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 28px;
+  }
+  .hcat {
+    position: static;
+    transform: none;
+    animation-name: hcatinmob;
+  }
+  @keyframes hcatinmob {
+    from {
+      opacity: 0;
+      transform: translateY(24px) scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  .hcat-pill {
+    width: 100%;
+  }
+  .hcat-line,
+  .hcat-dot {
+    display: none;
+  }
+}
+@media (max-width: 420px) {
+  .hcats {
+    grid-template-columns: 1fr;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .horbit::before,
+  .hcat,
+  .hcat-pill,
+  .hcat-ico,
+  .hcat-line,
+  .hcat-dot {
+    animation: none !important;
+  }
+}
+
+/* ===================== MARQUEE ===================== */
+.mqsec {
+  background: var(--primary);
+  padding: 13px 0;
+  overflow: hidden;
+}
+.mqtrack {
+  display: flex;
+  gap: 38px;
+  white-space: nowrap;
+  animation: mqrun 26s linear infinite;
+}
+.mqitem {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  font-size: 0.86rem;
+  font-weight: 500;
+}
+.mqitem i {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.55rem;
+}
+@keyframes mqrun {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ===================== CATEGORY ===================== */
+#category {
+  background: var(--cream);
+}
+.catcard {
+  background: #fff;
+  border-radius: 15px;
+  padding: 22px 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.4s;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+  border: 2px solid transparent;
+}
+.catcard:hover,
+.catcard.active {
+  transform: translateY(-7px);
+  box-shadow: 0 14px 38px rgba(232, 40, 26, 0.14);
+  border-color: var(--primary);
+}
+.catimg {
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 12px;
+  display: block;
+  transition: 0.4s;
+}
+/* Cut-out product photos: whole product inside the circle */
+.catimg-product {
+  object-fit: contain;
+  padding: 8px;
+  background: #fbf3e8;
+}
+/* mobile-only arrow (see mobile.css) */
+.catgo {
+  display: none;
+}
+.catimg-blank {
+  background: #f3ede6;
+  border: 2px dashed #e2d6c8;
+}
+.catcard:hover .catimg {
+  transform: scale(1.1) rotate(-4deg);
+}
+.catnm {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 3px;
+}
+.catct {
+  font-size: 0.73rem;
+  color: #bbb;
+}
+
+/* ===================== ABOUT ===================== */
+#about {
+  background: #fff;
+}
+.astack {
+  position: relative;
+}
+.amain {
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.amain img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  display: block;
+}
+.asm {
+  position: absolute;
+  bottom: -26px;
+  right: -26px;
+  width: 170px;
+  height: 170px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 5px solid #fff;
+  box-shadow: var(--shadow);
+}
+.asm img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.aexp {
+  position: absolute;
+  top: 28px;
+  left: -16px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 14px;
+  padding: 18px 22px;
+  text-align: center;
+  box-shadow: 0 10px 28px rgba(232, 40, 26, 0.4);
+}
+.aexp .anum {
+  font-family: "Playfair Display", serif;
+  font-size: 2.3rem;
+  font-weight: 900;
+  line-height: 1;
+  display: block;
+}
+.aexp small {
+  font-size: 0.7rem;
+  opacity: 0.9;
+}
+.fti {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  margin-bottom: 18px;
+}
+.ftico {
+  width: 46px;
+  height: 46px;
+  border-radius: 11px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  transition: 0.3s;
+}
+.ftico.r {
+  background: rgba(232, 40, 26, 0.1);
+  color: var(--primary);
+}
+.ftico.y {
+  background: rgba(246, 166, 35, 0.11);
+  color: var(--secondary);
+}
+.ftico.g {
+  background: rgba(45, 106, 79, 0.1);
+  color: var(--green);
+}
+.fti:hover .ftico {
+  transform: scale(1.1);
+}
+.fti h6 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 2px;
+  font-family: "Poppins", sans-serif;
+}
+.fti p {
+  font-size: 0.8rem;
+  color: #888;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ===================== MENU ===================== */
+#menu {
+  background: var(--light);
+}
+/* FIX 3 â€” Filter buttons */
+.filtbtn {
+  border: 2px solid #e5e5e5;
+  background: #fff;
+  border-radius: 50px;
+  padding: 8px 20px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  transition: 0.3s;
+  margin: 3px;
+  font-family: "Poppins", sans-serif;
+}
+.filtbtn.active,
+.filtbtn:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+  box-shadow: 0 5px 18px rgba(232, 40, 26, 0.24);
+}
+.mwrap {
+  transition: 0.35s;
+}
+.mwrap.gone {
+  display: none !important;
+}
+.mcard {
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  transition: 0.4s;
+  box-shadow: 0 4px 22px rgba(0, 0, 0, 0.07);
+  cursor: pointer;
+}
+.mcard:hover {
+  transform: translateY(-9px);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.13);
+}
+.mimg {
+  position: relative;
+  overflow: hidden;
+  height: 215px;
+  background: var(--cream2);
+}
+.mimg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s;
+}
+/* Blank image area until product images are added */
+.mimg-blank {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mimg-blank > .fa-image {
+  font-size: 3rem;
+  color: rgba(0, 0, 0, 0.08);
+}
+/* Same image height for every menu card so rows line up */
+#mgrid .mimg {
+  height: 260px;
+}
+/* Wide promo banners fill the whole image area */
+.mimg-banner img {
+  object-fit: cover;
+}
+/* Product cut-outs (transparent PNG): show the whole bottle, no crop */
+.mimg-product {
+  height: 260px;
+  padding: 18px 0;
+}
+.mimg-product img {
+  object-fit: contain;
+}
+/* Thumbnails for products with more than one photo */
+.mgroup-link {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+.mcard:hover .mimg img {
+  transform: scale(1.09);
+}
+.mbdg {
+  position: absolute;
+  top: 13px;
+  left: 13px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 7px;
+  padding: 3px 11px;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+.mbdg.new {
+  background: var(--green);
+}
+.mbdg.hot {
+  background: var(--secondary);
+  color: var(--dark);
+}
+/* FIX 4 â€” Heart & Plus buttons stop propagation */
+.mhrt {
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ccc;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 2px 9px rgba(0, 0, 0, 0.1);
+}
+.mhrt:hover {
+  color: var(--primary);
+  transform: scale(1.18);
+}
+.mbody {
+  padding: 18px;
+}
+.mcat {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+.mtit {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+  font-family: "Playfair Display", serif;
+}
+.mfoot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.mprice {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--primary);
+  font-family: "Playfair Display", serif;
+}
+.mprice small {
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: #ccc;
+  text-decoration: line-through;
+  margin-left: 5px;
+}
+/* FIX 4 â€” Plus button opens detail popup */
+.madd {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), #c01e12);
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 4px 11px rgba(232, 40, 26, 0.28);
+}
+.madd:hover {
+  transform: scale(1.15) rotate(90deg);
+}
+
+/* ===================== SPECIAL OFFER ===================== */
+/* ===== 3D crossing ribbons between the two promo sections ===== */
+.ribbons3d {
+  --p: 0;
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  perspective: 1100px;
+  /* blends the red Ghaslet band into the charcoal Chilli Crisp band */
+  background: linear-gradient(180deg, #2d0000 0%, #140404 50%, #0d0d0d 100%);
+}
+.rb {
+  position: absolute;
+  top: 50%;
+  left: -15%;
+  width: 130%;
+  padding: 16px 0;
+  transform-style: preserve-3d;
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.55);
+  will-change: transform;
+}
+/* scroll-linked 3D: the ribbons slide apart and tilt as you scroll past */
+.rb-red {
+  background: linear-gradient(90deg, #c01e12, #e8281a 50%, #c01e12);
+  color: #fff;
+  transform: translateY(-50%) rotate(-6deg) translateX(calc(var(--p) * 220px)) rotateX(calc(var(--p) * 38deg)) translateZ(calc(var(--p) * -60px));
+  z-index: 2;
+}
+.rb-yellow {
+  background: linear-gradient(90deg, #f0c400, #ffd60a 50%, #f0c400);
+  color: #111;
+  transform: translateY(-50%) rotate(6deg) translateX(calc(var(--p) * -220px)) rotateX(calc(var(--p) * -38deg)) translateZ(calc(var(--p) * 60px));
+  z-index: 1;
+}
+.rb-track {
+  display: flex;
+  width: max-content;
+  animation: rbmove 26s linear infinite;
+  animation-play-state: paused;
+}
+.rb-live .rb-track {
+  animation-play-state: running;
+}
+.rb-yellow .rb-track {
+  animation-direction: reverse;
+  animation-duration: 30s;
+}
+@keyframes rbmove {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.rb-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 26px;
+  padding-right: 26px;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(1.1rem, 2.4vw, 1.9rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+.rb-item i {
+  font-size: 0.8em;
+  opacity: 0.85;
+}
+.rb-red .rb-item i {
+  color: #ffd60a;
+}
+.rb-yellow .rb-item i {
+  color: #e8281a;
+}
+@media (max-width: 767px) {
+  .ribbons3d {
+    height: 220px;
+  }
+  .rb {
+    padding: 11px 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rb-track {
+    animation: none;
+  }
+  .ribbons3d {
+    --p: 0 !important;
+  }
+}
+/* ===== Sticky 3D product ring between Chilli Crisp and Merch ===== */
+.ring3d {
+  --radius: 430px;
+  height: 260vh;
+  padding: 0;
+  position: relative;
+  background: linear-gradient(180deg, #1f1a05 0%, #0e0e0e 30%, #0b0b12 100%);
+}
+.rg-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1300px;
+}
+.rg-glow {
+  position: absolute;
+  left: 50%;
+  top: 62%;
+  width: 900px;
+  height: 260px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse at center, rgba(34, 211, 238, 0.24), rgba(232, 40, 26, 0.1) 45%, transparent 70%);
+  pointer-events: none;
+}
+.rg-stage {
+  position: relative;
+  width: 1px;
+  height: 1px;
+  transform-style: preserve-3d;
+}
+/* slow idle spin on top of the scroll-driven turn */
+.rg-spin {
+  position: absolute;
+  transform-style: preserve-3d;
+  animation: rgspin 36s linear infinite;
+  animation-play-state: paused;
+}
+.ring3d.rg-live .rg-spin {
+  animation-play-state: running;
+}
+@keyframes rgspin {
+  to {
+    transform: rotateY(360deg);
+  }
+}
+.rg-ring {
+  position: absolute;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.rg-card {
+  position: absolute;
+  width: 190px;
+  height: 250px;
+  left: -95px;
+  top: -125px;
+  border-radius: 20px;
+  padding: 16px 14px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(160deg, #26262e, #121217);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.4);
+  backface-visibility: hidden;
+}
+.rg-card img {
+  height: 175px;
+  width: 100%;
+  object-fit: contain;
+}
+.rg-card i {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  font-size: 4.2rem;
+  color: #22d3ee;
+}
+.rg-card span {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+  line-height: 1.3;
+}
+.rg-red {
+  border-color: rgba(232, 40, 26, 0.55);
+}
+.rg-yellow {
+  border-color: rgba(255, 214, 10, 0.6);
+}
+.rg-cyan {
+  border-color: rgba(34, 211, 238, 0.6);
+}
+.rg-words {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%) translateZ(0);
+  margin: 0;
+  display: flex;
+  gap: 0.35em;
+  white-space: nowrap;
+  font-family: "Playfair Display", serif;
+  font-weight: 900;
+  font-size: clamp(2.6rem, 8vw, 6.5rem);
+  text-transform: uppercase;
+  color: #fff;
+  pointer-events: none;
+}
+.rg-words span {
+  display: inline-block;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.rg-words span:nth-child(2) {
+  color: #ffd60a;
+}
+.rg-words span:nth-child(3) {
+  color: #22d3ee;
+}
+@media (max-width: 991px) {
+  .ring3d {
+    --radius: 300px;
+  }
+  .rg-card {
+    width: 140px;
+    height: 190px;
+    left: -70px;
+    top: -95px;
+  }
+  .rg-card img {
+    height: 125px;
+  }
+  .rg-card i {
+    font-size: 3rem;
+  }
+}
+@media (max-width: 575px) {
+  .ring3d {
+    --radius: 210px;
+    height: 220vh;
+  }
+  .rg-card {
+    width: 104px;
+    height: 144px;
+    left: -52px;
+    top: -72px;
+    padding: 10px 8px;
+    border-radius: 14px;
+  }
+  .rg-card img {
+    height: 92px;
+  }
+  .rg-card span {
+    font-size: 0.56rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rg-spin {
+    animation: none;
+  }
+}
+
+/* Merch promo: near-black with an electric cyan accent */
+.special--merch {
+  background: linear-gradient(135deg, #0b0b12 0%, #111a22 100%) !important;
+}
+.special--merch .sptag {
+  background: #22d3ee;
+}
+.special--merch .sptitle span,
+.special--merch .spflavours em {
+  color: #22d3ee;
+}
+/* Empty image slot until the merch photo is added */
+.spblank {
+  position: relative;
+  z-index: 2;
+  aspect-ratio: 16 / 9;
+  border-radius: 18px;
+  border: 2px dashed rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.2rem;
+  color: rgba(255, 255, 255, 0.15);
+}
+
+/* Chilli Crisp promo: charcoal + mustard yellow to match its label */
+.special--crisp {
+  background: linear-gradient(135deg, #0d0d0d 0%, #1f1a05 100%) !important;
+}
+.special--crisp .sptag {
+  background: #ffd60a;
+}
+.special--crisp .sptitle span,
+.special--crisp .spflavours em {
+  color: #ffd60a;
+}
+.special {
+  background: linear-gradient(135deg, #1a0000 0%, #2d0000 100%);
+  position: relative;
+  overflow: hidden;
+}
+.spbg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  background: repeating-linear-gradient(
+    45deg,
+    #fff 0,
+    #fff 1px,
+    transparent 0,
+    transparent 50%
+  );
+  background-size: 40px 40px;
+}
+.sptag {
+  display: inline-block;
+  background: var(--secondary);
+  color: var(--dark);
+  border-radius: 6px;
+  padding: 4px 15px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+.sptitle {
+  font-size: clamp(2.3rem, 5vw, 3.8rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.1;
+}
+.sptitle span {
+  color: var(--secondary);
+}
+.spdesc {
+  color: rgba(255, 255, 255, 0.62);
+  margin: 18px 0;
+  font-size: 0.93rem;
+  line-height: 1.8;
+}
+.spimgw {
+  position: relative;
+  text-align: center;
+}
+.spimgw img.spbanner {
+  max-width: 100%;
+  border-radius: 18px;
+}
+.spflavours {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  margin: 22px 0 28px;
+}
+.spflavours em {
+  font-style: normal;
+  color: var(--secondary);
+}
+.spglow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(246, 166, 35, 0.24),
+    transparent 70%
+  );
+}
+.spimgw img {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 440px;
+  filter: drop-shadow(0 28px 56px rgba(246, 166, 35, 0.28));
+  animation: fltimg 5s ease-in-out infinite;
+}
+@keyframes fltimg {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-17px);
+  }
+}
+
+/* ===================== FOOTER ===================== */
+footer {
+  background: var(--dark);
+  padding: 68px 0 0;
+}
+.fdesc {
+  color: #777;
+  font-size: 0.86rem;
+  line-height: 1.8;
+  margin-top: 9px;
+}
+.ftit {
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+  padding-bottom: 9px;
+  border-bottom: 2px solid var(--primary);
+  display: inline-block;
+  font-family: "Poppins", sans-serif;
+}
+.flinks li {
+  list-style: none;
+  margin-bottom: 9px;
+}
+.flinks a {
+  color: #777;
+  font-size: 0.86rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  transition: 0.3s;
+}
+.flinks a:hover {
+  color: var(--secondary);
+  padding-left: 5px;
+}
+.flinks a i {
+  color: var(--primary);
+  font-size: 0.68rem;
+}
+.fci {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  margin-bottom: 14px;
+}
+.fciico {
+  width: 34px;
+  height: 34px;
+  border-radius: 7px;
+  background: rgba(232, 40, 26, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  font-size: 0.82rem;
+  flex-shrink: 0;
+}
+.fciinfo {
+  color: #777;
+  font-size: 0.83rem;
+  line-height: 1.6;
+}
+.fciinfo strong {
+  color: #bbb;
+  display: block;
+  font-size: 0.77rem;
+}
+.fbot {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 18px 0;
+  margin-top: 46px;
+}
+.fbot p {
+  color: #555;
+  font-size: 0.8rem;
+  margin: 0;
+}
+.fbot span {
+  color: var(--primary);
+}
+.fbot a {
+  color: #555;
+  font-size: 0.8rem;
+  margin-left: 18px;
+}
+.fbot a:hover {
+  color: var(--secondary);
+}
+
+/* ===================== UTILITIES ===================== */
+#btt {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9990;
+  width: 44px;
+  height: 44px;
+  border-radius: 11px;
+  background: linear-gradient(135deg, var(--primary), #c01e12);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  box-shadow: 0 6px 18px rgba(232, 40, 26, 0.38);
+  opacity: 0;
+  transform: translateY(18px);
+  transition: 0.4s;
+}
+#btt.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+#btt:hover {
+  transform: translateY(-4px) !important;
+}
+
+/* ====================================================
+   ALL POPUP / MODAL STYLES
+==================================================== */
+
+/* --- FIX 1: SEARCH POPUP --- */
+#searchOv {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(5, 5, 5, 0.97);
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 78px;
+}
+#searchOv.open {
+  display: flex;
+  animation: fadeov 0.28s ease;
+}
+@keyframes fadeov {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+#searchOv .sovclose {
+  position: absolute;
+  top: 22px;
+  right: 28px;
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#searchOv .sovclose:hover {
+  background: var(--primary);
+}
+.sovbox {
+  width: 100%;
+  max-width: 680px;
+  padding: 0 18px;
+}
+.sovbox h4 {
+  color: #fff;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 26px;
+  font-family: "Playfair Display", serif;
+}
+.sovinput {
+  display: flex;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  border-radius: 60px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+}
+.sovinput input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 17px 24px;
+  color: #fff;
+  font-size: 1.05rem;
+  font-family: "Poppins", sans-serif;
+  outline: none;
+}
+.sovinput input::placeholder {
+  color: rgba(255, 255, 255, 0.38);
+}
+.sovinput button {
+  background: var(--primary);
+  border: none;
+  padding: 0 26px;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.sovinput button:hover {
+  background: #c01e12;
+}
+.sovcats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  justify-content: center;
+  margin-top: 28px;
+}
+.sovcat {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 50px;
+  padding: 7px 18px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.83rem;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: "Poppins", sans-serif;
+}
+.sovcat img {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.sovcat:hover,
+.sovcat.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+.sovtrend {
+  text-align: center;
+  margin-top: 26px;
+}
+.sovtrend p {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.8rem;
+  margin-bottom: 9px;
+}
+.sovtrend .ttag {
+  display: inline-block;
+  margin: 3px;
+  background: rgba(246, 166, 35, 0.13);
+  border: 1px solid rgba(246, 166, 35, 0.28);
+  color: var(--secondary);
+  border-radius: 20px;
+  padding: 3px 13px;
+  font-size: 0.76rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.sovtrend .ttag:hover {
+  background: var(--secondary);
+  color: var(--dark);
+}
+
+/* --- FIX 4: MENU DETAIL POPUP --- */
+
+/* --- FIX 7: GALLERY POPUP --- */
+
+/* Magnific video override */
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 991px) {
+  .hcircle {
+    width: 320px;
+    height: 320px;
+  }
+  .asm {
+    display: none;
+  }
+  /* Timeline mobile: collapse to single column */
+}
+@media (max-width: 767px) {
+  section {
+    padding: 55px 0;
+  }
+  .hcircle {
+    width: 260px;
+    height: 260px;
+  }
+  /* Hide only hero floating cards, NOT form cards */
+  .hstats {
+    display: none !important;
+  }
+}
+@media (max-width: 480px) {
+  .hcircle {
+    width: 220px;
+    height: 220px;
+  }
+  .htitle {
+    font-size: 2.4rem;
+  }
+  .stitle {
+    font-size: 1.8rem;
+  }
+}
