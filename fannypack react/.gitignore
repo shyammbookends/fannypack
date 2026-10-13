@@ -1,3 +1,6 @@
 node_modules
 .firebase
 firebase-debug.log
+
+# Vercel environment values (contains secrets, never commit)
+.env.vercel

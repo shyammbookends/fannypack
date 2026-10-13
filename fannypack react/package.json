@@ -2,6 +2,7 @@
   "name": "bookends-fannypack",
   "private": true,
   "version": "1.0.0",
+  "type": "module",
   "description": "Runs the frontend and backend together. Each folder also works on its own.",
   "scripts": {
     "install:all": "npm install && npm --prefix backend install && npm --prefix frontend install",

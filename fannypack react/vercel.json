@@ -1,9 +1,15 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "installCommand": "npm --prefix frontend ci",
+  "installCommand": "npm --prefix frontend ci && npm --prefix backend ci --omit=dev",
   "buildCommand": "npm --prefix frontend run build",
   "outputDirectory": "frontend/dist",
+  "functions": {
+    "api/index.js": {
+      "maxDuration": 30,
+      "includeFiles": "backend/{*.js,admin/**/*.js,lib/**/*.js,integrations/**/*.js}"
+    }
+  },
   "headers": [
     {
       "source": "/assets/(.*)",
@@ -11,6 +17,10 @@
     }
   ],
   "rewrites": [
-    { "source": "/((?!assets/|img/|api/|uploads/).*)", "destination": "/index.html" }
+    { "source": "/api/:path*", "destination": "/api" },
+    { "source": "/uploads/:path*", "destination": "/api" },
+    { "source": "/sitemap.xml", "destination": "/api" },
+    { "source": "/robots.txt", "destination": "/api" },
+    { "source": "/((?!assets/|img/).*)", "destination": "/index.html" }
   ]
 }
