@@ -1,13 +1,13 @@
-﻿# Bookends Fanny Pack - Website + Shop
+# Bookends Fanny Pack - Website + Shop
 
 React (Vite) website with a shop and an admin panel, backed by an Express API on PostgreSQL.
 
 ```text
 fannypack react/
-â”œâ”€â”€ frontend/   React website + admin panel (Vite)        -> frontend/.env
-â”œâ”€â”€ backend/    Express API, database, emails, payments   -> backend/.env
-â”œâ”€â”€ firebase.json, .firebaserc, Dockerfile                 -> hosting on Firebase (see below)
-â””â”€â”€ package.json                                           -> runs both together
+|-- frontend/   React website + admin panel (Vite)        -> frontend/.env
+|-- backend/    Express API, database, emails, payments   -> backend/.env
+|-- firebase.json, .firebaserc, Dockerfile, vercel.json   -> hosting (see below)
+`-- package.json                                           -> runs both together
 ```
 
 ## Run it (development)
@@ -59,7 +59,7 @@ photos with WebP) goes to the backend running on **Google Cloud Run**. Nothing i
 
 1. Install the tools: `npm i -g firebase-tools`, plus the Google Cloud CLI (`gcloud`). Run `firebase login`.
 2. Put your Firebase project id in `.firebaserc`.
-3. Database: create a PostgreSQL database (Cloud SQL, Neon, Supabaseâ€¦). From your PC, point `backend/.env`
+3. Database: create a PostgreSQL database (Cloud SQL, Neon, Supabase...). From your PC, point `backend/.env`
    `DATABASE_URL` at it and run `npm run db:migrate`, then `npm run admin:create`.
 4. Photos uploaded in the admin must survive restarts: create a Cloud Storage bucket, copy `backend/uploads/`
    into it once, and mount it on Cloud Run at `/app/backend/uploads` (step 5).
@@ -77,11 +77,22 @@ photos with WebP) goes to the backend running on **Google Cloud Run**. Nothing i
 
 Notes:
 - Sign-in uses one cookie named `__session`: the only cookie Firebase Hosting passes to Cloud Run.
-- `max-instances Ã— DB_POOL_MAX` must stay below the database's connection limit (10 Ã— 10 = 100).
+- `max-instances x DB_POOL_MAX` must stay below the database's connection limit (10 x 10 = 100).
 - `--no-cpu-throttling` + `--min-instances 1` keep the background jobs running (unpaid-order release,
   tracking sync, session cleanup).
 - Public pages and catalogue data are cached by the CDN for 30 seconds, so admin changes can take up to
   30 seconds to show for visitors.
+
+## Host the website on Vercel
+
+`vercel.json` builds only the website (Root Directory in Vercel: `fannypack react`): it installs the
+frontend packages, runs the Vite build and serves `frontend/dist`. Vercel does not run the Express backend, so
+the shop, sign-in, cart and admin need the backend hosted elsewhere (Cloud Run, Render, a VPS...). When it is live,
+add this as the FIRST entry of `rewrites` in `vercel.json` (and set the backend's `PUBLIC_URL` to the Vercel address):
+
+```json
+{ "source": "/:path(api|uploads|sitemap.xml|robots.txt)/:rest*", "destination": "https://YOUR-BACKEND-URL/:path/:rest*" }
+```
 
 ## Traffic
 
