@@ -1,6 +1,3 @@
 node_modules
-dist
-.env
-uploads/*
-!uploads/.gitkeep
-backups/
+.firebase
+firebase-debug.log

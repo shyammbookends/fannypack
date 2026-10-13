@@ -1,0 +1,29 @@
+{
+  "hosting": {
+    "public": "frontend/dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**",
+      "index.html",
+      "img/**"
+    ],
+    "trailingSlash": false,
+    "headers": [
+      {
+        "source": "/assets/**",
+        "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+      },
+      {
+        "source": "**/*.@(ico|png|svg)",
+        "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }]
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "run": { "serviceId": "fannypack", "region": "asia-south1" }
+      }
+    ]
+  }
+}

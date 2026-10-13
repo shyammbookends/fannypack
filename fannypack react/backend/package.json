@@ -1,0 +1,27 @@
+{
+  "name": "fannypack-backend",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Bookends Fanny Pack API: Express + PostgreSQL (shop, admin panel, payments, shipping)",
+  "engines": { "node": ">=20" },
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch index.js",
+    "start": "node index.js",
+    "db:migrate": "node migrate.js",
+    "db:schema": "node scripts/dump-schema.js",
+    "db:backup": "node scripts/backup.js",
+    "db:restore": "node scripts/restore.js",
+    "admin:create": "node scripts/create-admin.js",
+    "mail:test": "node scripts/mail-test.js"
+  },
+  "dependencies": {
+    "compression": "^1.8.2",
+    "dotenv": "^18.0.4",
+    "express": "^5.2.1",
+    "nodemailer": "^10.0.12",
+    "pg": "^8.23.0",
+    "qrcode": "^1.5.4"
+  }
+}
