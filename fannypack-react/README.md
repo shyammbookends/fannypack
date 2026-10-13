@@ -3,7 +3,7 @@
 React (Vite) website with a shop and an admin panel, backed by an Express API on PostgreSQL.
 
 ```text
-fannypack react/
+fannypack-react/
 |-- frontend/   React website + admin panel (Vite)        -> frontend/.env
 |-- backend/    Express API, database, emails, payments   -> backend/.env
 |-- firebase.json, .firebaserc, Dockerfile, vercel.json   -> hosting (see below)
@@ -13,7 +13,7 @@ fannypack react/
 ## Run it (development)
 
 ```bash
-cd "F:\ends\Fannypack main\fannypack react"
+cd "F:\ends\Fannypack main\fannypack-react"
 npm run install:all   # first time only: installs root, backend and frontend packages
 npm run db:migrate    # creates / updates the database tables (safe to re-run)
 npm run dev           # API on :5000 + website on http://localhost:5173
@@ -85,7 +85,7 @@ Notes:
 
 ## Host the website on Vercel
 
-`vercel.json` builds only the website (Root Directory in Vercel: `fannypack react`): it installs the
+`vercel.json` builds only the website (Root Directory in Vercel: `fannypack-react`): it installs the
 frontend packages, runs the Vite build and serves `frontend/dist`. Vercel does not run the Express backend, so
 the shop, sign-in, cart and admin need the backend hosted elsewhere (Cloud Run, Render, a VPS...). When it is live,
 add this as the FIRST entry of `rewrites` in `vercel.json` (and set the backend's `PUBLIC_URL` to the Vercel address):

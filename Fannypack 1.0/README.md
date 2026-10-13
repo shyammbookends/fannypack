@@ -1,7 +1,7 @@
 # Fanny Pack - HTML Template
 
 The original static HTML version of the Bookends Fanny Pack website (folder `fannypack-html/`), with its
-documentation in `Documentation/`. The live website is the React app in `fannypack react/`.
+documentation in `Documentation/`. The live website is the React app in `fannypack-react/`.
 
 ## Author
 
